@@ -1,5 +1,7 @@
 function status(req,res){
-  res.status(200).send(`Olá !`);
+  res.status(200).json({
+    message:`Hello`
+  });
 }
 
 export default status;
