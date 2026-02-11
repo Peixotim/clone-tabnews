@@ -11,15 +11,16 @@
     "services:down": "docker compose -f ./infra/compose.yaml down -v",
     "lint:check": "prettier --check .",
     "lint:fix": "prettier --write .",
-    "test": "jest",
-    "test:watch": "jest --watchAll",
-    "migrate:create": "node-pg-migrate -m infra/migrations create",
-    "migrate:up": "node-pg-migrate -m infra/migrations --envPath .env.development up"
+    "test": "jest --runInBand",
+    "test:watch": "jest --watchAll --runInBand",
+    "migration:create": "node-pg-migrate -m infra/migrations create",
+    "migration:up": "node-pg-migrate -m infra/migrations --envPath .env.development up"
   },
   "author": "",
   "license": "MIT",
   "dependencies": {
     "dotenv": "^17.2.3",
+    "dotenv-expand": "11.0.6",
     "next": "^13.1.6",
     "node-pg-migrate": "6.2.2",
     "pg": "8.11.3",
